@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Portofolio Rizal</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+}
+
+/* ===== HEADER ===== */
+header {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h2 { color: #00ffd5; }
+
+nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+nav a::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #00ffd5;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: 0.3s;
+}
+nav a:hover::after { width: 100%; }
+
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px;
+    animation: fade 0.6s ease;
+}
+
+/* ===== HOME ===== */
+.home-ref {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    min-height: 80vh;
+}
+
+.home-left small {
+    color: #1e90ff;
+    font-size: 14px;
+}
+
+.home-left h1 {
+    font-size: 48px;
+    margin: 10px 0;
+}
+.home-left h1 span { color: #1e90ff; }
+
+.home-left h3 {
+    font-weight: normal;
+    opacity: 0.8;
+    margin-bottom: 15px;
+}
+
+.home-left p {
+    max-width: 500px;
+    line-height: 1.7;
+    opacity: 0.75;
+}
+
+.home-buttons { margin-top: 25px; }
+.home-buttons button { margin-right: 15px; }
+
+/* ===== HOME  ===== */
+.home-right img {
+    width: 360px;
+    border-radius: 25px;
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.6),
+        0 0 30px rgba(30,144,255,0.4);
+    animation: floatGlow 4s ease-in-out infinite;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.home-right img:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.8),
+        0 0 50px rgba(30,144,255,0.8);
+}
+
+/* ===== Profile ===== */
+.card {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+.card h1 { color: #00ffd5; margin-bottom: 15px; }
+
+.profile-box {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 4px solid #00ffd5;
+    box-shadow: 0 0 20px #00ffd5;
+}
+
+/* ===== PROFILE KEREN ===== */
+.profile-card {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.profile-left {
+    text-align: center;
+}
+
+.profile-left img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid #00ffd5;
+    box-shadow: 0 0 30px #00ffd5;
+    animation: pulse 3s infinite;
+}
+
+.profile-right {
+    flex: 1;
+}
+
+.profile-right h2 {
+    color: #00ffd5;
+    margin-bottom: 10px;
+}
+
+.profile-right p {
+    opacity: 0.85;
+    line-height: 1.6;
+}
+
+/* ===== SKILL ===== */
+.skill {
+    margin: 15px 0;
+}
+
+.skill span {
+    font-size: 14px;
+}
+
+.skill-bar {
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    height: 10px;
+    margin-top: 5px;
+}
+
+.skill-bar div {
+    height: 100%;
+    background: #00ffd5;
+}
+
+/* ===== ANIMASI ===== */
+@keyframes pulse {
+    0% { box-shadow: 0 0 20px #00ffd5; }
+    50% { box-shadow: 0 0 40px #00ffd5; }
+    100% { box-shadow: 0 0 20px #00ffd5; }
+}
+
+
+/* ===== PROJECT ===== */
+.project {
+    padding: 15px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 10px;
+    margin: 10px 0;
+}
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background: rgba(0,0,0,0.35);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.project-content {
+    padding: 18px;
+}
+
+.project-content h3 {
+    color: #00ffd5;
+    margin-bottom: 8px;
+}
+
+.project-content p {
+    font-size: 14px;
+    opacity: 0.85;
+    line-height: 1.6;
+}
+
+/* ===== MEDIA TAB ===== */
+.media-tabs {
+    margin-bottom: 20px;
+}
+
+.media-tabs button {
+    margin-right: 10px;
+    padding: 10px 18px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.media-tabs button.active {
+    background: #00ffd5;
+    color: black;
+}
+
+/* ===== MEDIA GRID ===== */
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.media-grid img,
+.media-grid video {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+
+/* ===== FORM ===== */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: none;
+}
+button {
+    background: #00ffd5;
+    color: black;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+button:hover { background: white; }
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 15px;
+    opacity: 0.6;
+}
+
+/* ===== ANIMASI ===== */
+@keyframes fade {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+@keyframes floatGlow {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>Rijangslebew</h2>
+    <nav>
+        <a href="#" onclick="show('home')">Home</a>
+        <a href="#" onclick="show('profile')">Profile</a>
+        <a href="#" onclick="show('karya')">Projects</a>
+        <a href="#" onclick="show('media')">Media</a>
+        <a href="#" onclick="show('contact')">Contact</a>
+    </nav>
+</header>
+
+<div class="container" id="content"></div>
+
+<footer>
+    © 2025 • Portofolio Rizal Ananta
+</footer>
+
+<script>
+function show(page) {
+    let c = document.getElementById("content");
+
+    if (page === "home") {
+        c.innerHTML = `
+        <div class="home-ref">
+            <div class="home-left">
+                <small>Halo, saya</small>
+                <h1>Rizal <span>Ananta</span></h1>
+                <h3>Mahasiswa Sistem Informasi</h3>
+                <p>
+                    saya sedang mempelajari dasar-dasar Tegnologi informasi dan pengembangan Web. website ini merupakan website pertama saya, yang di buat sebagai media pembelajaran dan dokumentasi awal dalam mempelajari pengembagan web.
+                </p>
+                <div class="home-buttons">
+                    <button onclick="show('karya')">Lihat Project</button>
+                    <button onclick="show('media')">media Saya</button>
+                </div>
+            </div>
+            <div class="home-right">
+                <img src="Rijang.jpeg" alt="Foto Saya">
+            </div>
+        </div>`;
+    }
+
+    if (page === "profile") {
+    c.innerHTML = `
+    <div class="card">
+        <h1>Profile</h1>
+
+        <div class="profile-card">
+
+            <div class="profile-left">
+                <img src="kece.jpeg">
+                <h3 style="margin-top:15px;">Rizal Ananta</h3>
+                <small>Mahasiswa Sistem Informasi</small>
+            </div>
+
+            <div class="profile-right">
+
+                <h2>Latar Belakang</h2>
+                <div class="profile-about">
+                    <p>
+                        Saya adalah mahasiswa Sistem Informasi yang memiliki ketertarikan
+                        pada dunia teknologi, khususnya pengembangan website. Saya mulai
+                        belajar membuat website dari tugas perkuliahan dan terus
+                        mengembangkan kemampuan saya melalui berbagai project sederhana.
+                    </p>
+                </div>
+
+                <h2 style="margin-top:25px;">Biodata</h2>
+                <div class="biodata">
+                    <p><b>Nama Lengkap:</b> Rizal Ananta Pramudya</p>
+                    <p><b>Umur:</b> 19 Tahun</p>
+                    <p><b>Tanggal Lahir:</b> 26 April 2006</p>
+                    <p><b>Alamat:</b>Bintaro,Tangerang selatan,Indonesia</p>
+                </div>
+
+            </div>
+        </div>
+    </div>`;
+}
+
+    if (page === "karya") {
+    c.innerHTML = `
+    <div class="card">
+        <h1>Karya & Project</h1>
+
+        <div class="project-grid">
+
+            <div class="project-card">
+                <img src="project p14.png">
+                <div class="project-content">
+                    <h3>Website Portofolio</h3>
+                    <p>
+                        Website portofolio pribadi yang menampilkan fitur,kontak dan lainnya
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="project p17.png">
+                <div class="project-content">
+                    <h3>Total Belanja</h3>
+                    <p>
+                       pembuatan website hitung total belanja yang terdiri nama pembeli jumlah beli dan harga.
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="project1 p19.png">
+                <div class="project-content">
+                    <h3>Website Mahasiwa</h3>
+                    <p>
+                        Pembuatan Website data Mahasiswa yang berisi umur dan nama 
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>`;
+}
+
+
+    if (page === "media") {
+    c.innerHTML = `
+    <div class="card">
+        <h1>Media</h1>
+
+        <h2 style="margin:20px 0 10px; color:#00ffd5;">📸 Foto</h2>
+        <div class="media-grid">
+            <img src="rijang3.jpeg">
+            <img src="rijang7.jpeg">
+            <img src="rijang8.jpeg">
+        </div>
+
+        <h2 style="margin:30px 0 10px; color:#00ffd5;">🎥 Video</h2>
+        <div class="media-grid">
+            <video controls src="Vidio1.mp4"></video>
+            <video controls src="vidio3.mp4"></video>
+            <video controls src="Vidio2.mp4"></video>
+        </div>
+    </div>`;
+}
+
+
+
+    if (page === "contact") {
+    c.innerHTML = `
+    <div class="card">
+        <h1>Contact</h1>
+
+        <p>Silakan hubungi saya melalui kontak di bawah ini:</p><br>
+
+        <p>📞 <b>Telepon / WhatsApp:</b><br>
+        +62 895 - 3603 - 99106</p><br>
+
+        <p>📸 <b>Instagram:</b><br>
+        <a href="https://www.instagram.com/rizalannta_/?__pwa=1" target="_blank" style="color:#00ffd5;">
+            @rizalannta_
+        </a></p><br>
+
+        <p>📧 <b>Email (Gmail):</b><br>
+        <a href="mailto:rizalananta72@gmail.com" style="color:#00ffd5;">
+            rizalananta72@gmail.com
+        </a></p><br>
+
+        <hr style="margin:20px 0; opacity:0.3;">
+
+        <h3>Kirim Pesan</h3>
+        <input type="text" placeholder="Nama">
+        <input type="email" placeholder="Email">
+        <textarea rows="4" placeholder="Pesan"></textarea>
+        <button>Kirim</button>
+    </div>`;
+}
+
+}
+show("home");
+</script>
+
+</body>
+</html>
